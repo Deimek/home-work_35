@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo-list</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+
+<body>
+    <div class="todo container">
+        <div class="todo__wrapper">
+            <h1 class="todo__title">ToDo List</h1>
+            <form action="#" class="todo__form" name="todo">
+                <input type="text" class="todo__input" name="text" placeholder="add task">
+                <button type="button" class="todo__btn">Add</button>
+            </form>
+            <ul class="todo__list">
+            </ul>
+            <div class="todo__alert">
+                Please enter a task!
+            </div>
+        </div>
+    </div>
+    <div class="modal modal__owerlay">
+        <div class="modal__wrapper">
+            <div class="modal__header modal__header--flex">
+                <span class="modal__title">Your task...!!!</span>
+                <div class="modal__close" aria-label="close">Esc</div>
+            </div>
+            <div class="modal__content">
+
+            </div>
+            <div class="modal__actions">
+                <button class="modal__btn modal__btn--cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
