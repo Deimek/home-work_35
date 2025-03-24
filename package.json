@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon server/server.mjs",
+    "start": "node server/server.mjs",
     "build": "webpack"
   },
   "type": "module",
