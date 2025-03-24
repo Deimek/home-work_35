@@ -5,9 +5,11 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 import fs from 'fs/promises';
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+dotenv.config();
 
-
-const uri = 'mongodb+srv://333olegovich333:SeXhDcPC90OEN7xr@cluster0.k2elk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = process.env.MONGO_URI;
+// const uri = 'mongodb+srv://333olegovich333:SeXhDcPC90OEN7xr@cluster0.k2elk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const client = new MongoClient(uri);
 const db = client.db('todoDB');
 const todosCollection = db.collection('todos');
