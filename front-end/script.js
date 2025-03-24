@@ -7,9 +7,14 @@ const ulTodoEl = document.querySelector('.todo__list');
 const btnAddTodo = document.querySelector('.todo__btn');
 const alertTodo = document.querySelector('.todo__alert');
 const inputTodoEl = document.querySelector('.todo__input');
+const apiBase =
+    window.location.hostname === 'localhost'
+        ? 'http://localhost:5555'
+        : 'https://home-work-35.onrender.com';
+
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:5555/todos')
+    fetch(`${apiBase}/todos`)
         .then(response => response.json())
         .then(result => {
             console.log('Відповідь від сервера:', result);
@@ -35,7 +40,7 @@ function setItemStorageObjects() {
         });
     });
 
-    fetch('http://localhost:5555/todos', {
+    fetch(`${apiBase}/todos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tasksArr)
@@ -74,7 +79,7 @@ ulTodoEl.addEventListener('click', (event) => {
         const li = event.target.parentElement;
         const id = li.dataset.id;
 
-        fetch(`http://localhost:5555/todos/${id}`, {
+        fetch(`${apiBase}/todos/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -96,7 +101,7 @@ ulTodoEl.addEventListener('change', (event) => {
         const id = li.dataset.id;
         const isDone = checkBoxEl.checked;
 
-        fetch(`http://localhost:5555/todos/${id}`, {
+        fetch(`${apiBase}/todos/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ isDone })
